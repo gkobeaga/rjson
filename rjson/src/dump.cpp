@@ -83,6 +83,10 @@ std::string toJSON2( SEXP x )
 	} else if( n != 1 || TYPEOF(x) == VECSXP ) {
 		oss << "[";
 		container_closer = "]";
+    /*dirty fix for topojson*/
+	} else if(TYPEOF(x) == INTSXP  ) {
+		oss << "[";
+		container_closer = "]";
 	}
 
 	SEXP levels;
